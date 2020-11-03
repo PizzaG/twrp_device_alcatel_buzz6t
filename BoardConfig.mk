@@ -46,9 +46,6 @@ BOARD_MKBOOTIMG_ARGS += --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)
 TARGET_BOARD_PLATFORM := MSM8909
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno304
 
-# Assert
-TARGET_OTA_ASSERT_DEVICE := BUZZ6T4GGOPHONE
-
 # Partitions
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 16636160 # This is the maximum known partition size, but it can be higher, so we just omit it
 
@@ -75,3 +72,17 @@ TW_EXTRA_LANGUAGES := true
 TW_SCREEN_BLANK_ON_BOOT := true
 TW_INPUT_BLACKLIST := "hbtp_vm"
 TW_USE_TOOLBOX := true
+TW_NO_SCREEN_TIMEOUT := true
+
+# DEBUG (BOTH needed to enable logcat)
+TARGET_USES_LOGD := true
+TWRP_INCLUDE_LOGCAT := true
+
+# exFAT FS Support
+TW_INCLUDE_FUSE_EXFAT := true
+# NTFS Support
+TW_INCLUDE_FUSE_NTFS := true
+
+# Time services
+BOARD_USES_QC_TIME_SERVICES := true
+TARGET_RECOVERY_QCOM_RTC_FIX := true
